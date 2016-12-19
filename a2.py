@@ -75,6 +75,54 @@ def is_valid_sequence(dna):
 	return True
 
 
+def  insert_sequence(seq_1, seq_2, index):
+	"""
+	(str, str, int) -> str
+
+	Return dna sequence index accordingly by inserting and index DNA sequence.
+	The first and second parameters are valid(assuming, it's a valid input) DNA sequences and the third parameter is index position.
+
+	>>> insert_sequence('CCGG', 'AT', 2)
+	'CCATGG'
+	insert_sequence('CCGG', 'AT', 0)
+    'ATCCGG'
+	"""
+	return seq_1[:index] + seq_2 + seq_1[index:]
+
+
+def get_complement(nucleotides):
+	"""
+	(str) -> str
+
+	Return the given nucleotides's complement.
+	The first parameter is nucleotides: 'A','T','C','G'
+
+	Side note: A complements T and visa-versa
+					A - T
+					T - A
+			   C complements G and visa-versa
+					C - G
+					G - C
+	>>> get_complement('A')
+	'T'
+	>>> get_complement('C')
+	'G'
+	>>> get_complement('T')
+	'A'
+	>>> get_complement('G')
+	'C'
+	"""
+
+	if nucleotides == 'A':
+		return 'T'
+	elif nucleotides == 'T':
+		return 'A'
+	elif nucleotides == 'C':
+		return 'G'
+	elif nucleotides == 'G':
+		return 'C'
+	else:
+		print("Please enter valid nucleotides 'ACTG'")
 
 
 
