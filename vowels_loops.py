@@ -15,9 +15,10 @@ def collect_vowels(s):
             vowels = vowels + char
         if char in 'aeiouAEIOU':
             num_vowels = num_vowels + 1
-
-    print ("There are", num_vowels, "vowel letters in", s, "and those are -->", vowels)
-
+            if char in 'aeiou':
+                num_vowels = num_vowels + 2
+                
+    return ("There are", num_vowels, "vowel letters in", s, "and those are -->", vowels)
 
 
 ##def count_vowels(s):
