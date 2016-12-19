@@ -37,9 +37,12 @@ def count_nucleotides(dna, nucleotide):
     >>> count_nucleotides('ATCTA', 'G')
     0
     """
-    dna = dna.capitalize()
-    nucleotides = nucleotides.capitalize()
-    return dna.count(nucleotide)
+    count = 0
+    for char in dna:
+        if (char == nucleotide):
+            count = count +1
+    return count
+
 
 def contains_sequence(dna1, dna2):
     """ (str, str) -> bool
@@ -73,11 +76,10 @@ def is_valid_sequence(dna):
 	# return True
 
 	result = True
-	valid_dna_sequence = 'ATCG'
 	for nucleotides in dna:
-		if nucleotides not in valid_dna_sequence:
+		if nucleotides not in 'ATCG':
 			result = False
-	return True
+	return result
 
 
 def  insert_sequence(seq_1, seq_2, index):
@@ -141,22 +143,4 @@ def get_complementary_sequence(dna):
 #		let's use get_complement funtion from above and use it to get complement.
 		complementary_sequence += get_complement(nucleotides)
 	return complementary_sequence
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
