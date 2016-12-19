@@ -21,7 +21,11 @@ def is_longer(dna1, dna2):
     >>> is_longer('ATCG', 'ATCGGA')
     False
     """
-    return len(dna1) > len(dna2)
+    # return len(dna1) > len(dna2)
+    dna1 = dna1.capitalize()
+    dna2 = dna2.capitalize()
+    return (len(dna1)>len(dna2))
+
 
 def count_nucleotides(dna, nucleotide):
     """ (str, str) -> int
@@ -33,6 +37,8 @@ def count_nucleotides(dna, nucleotide):
     >>> count_nucleotides('ATCTA', 'G')
     0
     """
+    dna = dna.capitalize()
+    nucleotides = nucleotides.capitalize()
     return dna.count(nucleotide)
 
 def contains_sequence(dna1, dna2):
@@ -45,12 +51,11 @@ def contains_sequence(dna1, dna2):
     True
     >>> contains_sequence('ATCGGC', 'GT')
     False
-
     """
+    return dna2 in dna1
 
 def is_valid_sequence(dna):
-	"""
-	(str) -> bool
+	""" (str) -> bool
 
 	Return True if and only DNA sequence is valid (which contains nucleotides: 'A', 'T', C', 'G').
 
@@ -76,8 +81,7 @@ def is_valid_sequence(dna):
 
 
 def  insert_sequence(seq_1, seq_2, index):
-	"""
-	(str, str, int) -> str
+	""" (str, str, int) -> str
 
 	Return dna sequence index accordingly by inserting and index DNA sequence.
 	The first and second parameters are valid(assuming, it's a valid input) DNA sequences and the third parameter is index position.
@@ -91,8 +95,7 @@ def  insert_sequence(seq_1, seq_2, index):
 
 
 def get_complement(nucleotides):
-	"""
-	(str) -> str
+	""" (str) -> str
 
 	Return the given nucleotides's complement.
 	The first parameter is nucleotides: 'A','T','C','G'
@@ -122,7 +125,23 @@ def get_complement(nucleotides):
 	elif nucleotides == 'G':
 		return 'C'
 	else:
-		print("Please enter valid nucleotides 'ACTG'")
+		print("Please enter valid nucleotides: 'ACTG'")
+
+def get_complementary_sequence(dna):
+	""" (str) -> str
+	Return the DNA sequence that is complementary to the give DNA sequence.
+	>>>get_complementary_sequence('AT')
+	'TA'
+	>>>get_complementary_sequence('GCGCTATA')
+	'CGCGATAT'
+	"""
+	complementary_sequence = ''
+
+	for nucleotides in dna:
+#		let's use get_complement funtion from above and use it to get complement.
+		complementary_sequence += get_complement(nucleotides)
+	return complementary_sequence
+
 
 
 
